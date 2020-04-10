@@ -7,19 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">Welcome! Let's Play Trivia Game</header>
+    <div class="score-board hide-display">
+        <h1 class="score">Score:</h1>
+        <h2 class="point">00</h2>
+    </div>
+    
     <div class="container">
-        <div class="question-control" class="hide">
-            <div class="question">what is the answer?</div>
+        <div class="question-control hide-display">
+            <div class="question"> <p>what is the answer?</p> </div>
             <div class="answers-container">
-                <button class="answer-button" class="btn">one</button>
-                <button class="answer-button" class="btn">two</button>
-                <button class="answer-button" class="btn">three</button>
-                <button class="answer-button" class="btn">four</button>
+                <button class="answer-button" class="btn" id="A">A</button>
+                <button class="answer-button" class="btn" id="B">B</button>
+                <button class="answer-button" class="btn" id="C">C</button>
+                <button class="answer-button" class="btn" id="D">D</button>
             </div>
         </div>
         <div class="controls">
-            <button class="start-button" class="btn">start</button>
-            <button class="next-button"  class="btn" class="hide">next</button>
+            <button class="start-button" class="btn">Start Game!</button>
+            <button class="next-button hide-display"  class="btn">next</button>
         </div>
     </div>
     <script src="script.js"></script>

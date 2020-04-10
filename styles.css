@@ -1,63 +1,93 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: beige;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: beige;
+}
+header {
+	position: fixed;
+	top: 70px;
+	text-align: center;
+	font-size: 30px;
+}
+.score-board {
+	position: fixed;
+	top: 90px;
+	right: 80px;
+	font-size: 15px;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+}
+.score {
+	display: inline-block;
+}
+
+.point {
+	display: inline-block;
+	padding: 8px;
 }
 
 .container {
-    width: 600px;
-    border-radius: 10px;
-    background-color: white;
-    padding: 10px;
-    text-align: center;
+	width: 600px;
+	border-radius: 10px;
+	background-color: beige;
+	padding: 10px;
+	text-align: center;
 }
 .question {
-    font-size: 25px;
+	font-size: 25px;
 }
 
 .answers-container {
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    grid-template-rows: repeat(2,auto) ;
-    margin: 20px 0;
-    gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-rows: repeat(2, auto);
+	margin: 70px 0;
+	gap: 10px;
 }
 
 .answer-button {
-    font-size: 20px;
-    border: 2px solid;
-    border-radius: 15px;
-    background-color: teal;
-    color: white;
-    padding: 5px; 
+	font-size: 20px;
+	color: black;
+	border: 2px solid grey;
+	border-radius: 15px;
+	background-color: white;
+	padding: 5px;
 }
 
 .answer-button:hover {
-    border-color: black;
+	border-color: black;
 }
 
 .controls {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
 }
 
-.start-button, .next-button {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 5px 10px;
-    border-radius: 5px;
-    padding: 5px;
-    border: 1px solid
+.start-button,
+.next-button {
+	font-size: 30px;
+	font-weight: bold;
+	margin: 5px 10px;
+	border-radius: 5px;
+	padding: 5px;
+	border: 1px solid;
 }
 .start-button {
-    background-color: rgba(249, 46, 10, 0.975);
-    color: rgb(36, 36, 36);
+	background-color: rgba(249, 0, 0, 0.735);
+	color: rgb(52, 51, 51);
+}
+.next-button {
+	position: fixed;
+	right: 80px;
+	font-size: 25px;
+	color: white;
+	background-color: rgba(1, 154, 154, 0.92);
 }
 
-.question-control, .next-button {
-    display: none;
+.hide-display {
+	display: none;
 }
