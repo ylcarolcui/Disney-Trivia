@@ -4,30 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Vast+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-    <header class="header">Welcome! Let's Play Trivia Game</header>
+    <header class="header">Welcome to <span class="disney">Disney</span> Trivia</header>
+    <div class="time">
+        <h1 class="timer"></h1>
+    </div>
     <div class="score-board hide-display">
         <h1 class="score">Score:</h1>
-        <h2 class="point">00</h2>
+        <h2 class="point">0</h2>
     </div>
     
     <div class="container">
         <div class="question-control hide-display">
             <div class="question"> <p>what is the answer?</p> </div>
-            <div class="answers-container">
-                <button class="answer-button" class="btn" id="A">A</button>
-                <button class="answer-button" class="btn" id="B">B</button>
-                <button class="answer-button" class="btn" id="C">C</button>
-                <button class="answer-button" class="btn" id="D">D</button>
+            <div class="answers-container" id="answers">
+                <button class="answer-button"  id="A">A</button>
+                <button class="answer-button"  id="B">B</button>
+                <button class="answer-button"  id="C">C</button>
+                <button class="answer-button"  id="D">D</button>
             </div>
         </div>
+        <div class="info"><p class="first-info">This quiz is for you if you are wondering how well you know about disney. You will get 10 points for each correct answer.</p>
+            <p class="second-info">Are you ready to challenge yourself?</p>
+        </div>
         <div class="controls">
-            <button class="start-button" class="btn">Start Game!</button>
-            <button class="next-button hide-display"  class="btn">next</button>
+            <button class="start-button">Start Quiz!</button>
+            <button class="next-button hide-display">next</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <div class="alert alert-success" style="display:none"><strong>Answer is correct!</strong></div>
+    <div class="try-again">
+        <h1 class="again">Do you want to try again?</h1>
+        <button class="try-again-button">Try Again</button>
+    </div>
+    <div class="winner">
+        <h1 class="congrats">Congratulation!</h1>
+        <h2 class="winner-message">You're a DISNEY EXPERT!</h2>
+    </div>
+        <script src="script.js"></script>
 </body>
 </html>

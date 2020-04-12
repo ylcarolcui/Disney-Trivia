@@ -5,6 +5,11 @@ const nextButton = document.querySelector('.next-button');
 const header = document.querySelector('.header');
 let scoreBoard = document.querySelector('.score-board');
 let scorePoint = document.querySelector('.point');
+const winner = document.querySelector('.winner');
+const tryAgain = document.querySelector('.try-again');
+const tryAgainButton = document.querySelector('.try-again-button');
+const showSuccessMessage = document.querySelector('.alert-success');
+const info = document.querySelector('.info')
 
 //declare variable for question and answers
 let askQuestion = document.querySelector('.question');
@@ -25,61 +30,113 @@ let questions = [
 		correct: 'B',
 	},
 	{
-		question: 'What is 2 + 2?',
-		choiceA: '1',
-		choiceB: '2',
-		choiceC: '3',
-		choiceD: '4',
+		question:
+			'In which Disney movie is the song, “I Just Can’t Wait to be King”?',
+		choiceA: 'The Legend of Tarzan',
+		choiceB: 'Aladdin',
+		choiceC: 'Shrek',
+		choiceD: 'The Lion King',
 		correct: 'D',
 	},
 	{
-		question: 'what is correct answer?',
-		choiceA: 'wrong',
-		choiceB: 'correct',
-		choiceC: 'wrong',
-		choiceD: 'wrong',
+		question: 'Who is the princess who wears pants instead of a dress?',
+		choiceA: 'Mulan',
+		choiceB: 'Jasmine',
+		choiceC: 'Pocahontas',
+		choiceD: 'Anastasia',
 		correct: 'B',
 	},
 	{
-		question: 'what is my birth month?',
-		choiceA: 'April',
-		choiceB: 'February',
-		choiceC: 'May',
-		choiceD: 'October',
+		question: 'What pattern is on Minnie Mouse’s skirt?',
+		choiceA: 'Plain',
+		choiceB: 'Ribbon',
+		choiceC: 'Dots',
+		choiceD: 'Flower',
+		correct: 'C',
+	},
+	{
+		question:
+			'In Pinocchio, he and his father are consumed by a massive blue whale. What was its name?',
+		choiceA: 'Figaro',
+		choiceB: 'Geppetto',
+		choiceC: 'Monstro',
+		choiceD: 'Mangiafuoco',
+		correct: 'C',
+	},
+	{
+		question: 'How many daughters does King Triton have in The Little Mermaid?',
+		choiceA: 'Seven',
+		choiceB: 'Six',
+		choiceC: 'Eight',
+		choiceD: 'Five',
+		correct: 'A',
+	},
+	{
+		question:
+			'Which Disney animated movie has a soundtrack that has gone ten times platinum according to the Recording Industry Association of America?',
+		choiceA: 'Frozen',
+		choiceB: 'The Lion King',
+		choiceC: 'Tangled',
+		choiceD: 'Zootopia',
+		correct: 'B',
+	},
+	{
+		question: 'What was the first ever Pixar film to be released?',
+		choiceA: 'Tin Toy',
+		choiceB: 'Toy Story',
+		choiceC: 'Luxo Jr',
+		choiceD: "Red's Dream",
+		correct: 'C',
+	},
+	{
+		question: 'Who and what was Bambi’s best friend?',
+		choiceA: 'Faline',
+		choiceB: 'Friend Owl',
+		choiceC: 'Flower',
+		choiceD: 'Thumper the rabbit',
 		correct: 'D',
 	},
+	{
+		question: 'Where does Aladdin live?',
+		choiceA: 'Agrabah',
+		choiceB: 'Baghdad',
+		choiceC: 'Ishtar',
+		choiceD: 'Qumar',
+		correct: 'A',
+	},
 ];
-//show the question by clicking start button
-
+//show questions by clicking start button
 //add event listener for start button
 startButton.addEventListener('click', showQuestion);
 //call the showQuestion function
-function showQuestion(event) {
+function showQuestion() {
 	if (gameStart.style.display === 'none') {
 		gameStart.style.display = 'block';
-		nextButton.style.display = 'block';
 		scoreBoard.style.display = 'block';
-		startButton.style.display = 'none';
-		header.style.display = 'none';
+        startButton.style.display = 'none';
+        nextButton.style.display = 'block';
+        header.style.display = 'none';
+        info.style.display = 'none';
 	} else {
-		gameStart.style.display = 'none';
-	}
-	showQuestions();
+        gameStart.style.display = 'none';
+    }
+    popUpQuestions();
+    
 }
 
 // call function for showing first question
 const lastQuestion = questions.length - 1;
 let questionsIndex = 0;
-var showQuestions = function () {
+var popUpQuestions = function () {
 	let q = questions[questionsIndex];
 	askQuestion.innerText = q.question;
 	answerA.innerText = q.choiceA;
 	answerB.innerText = q.choiceB;
 	answerC.innerText = q.choiceC;
-	answerD.innerText = q.choiceD;
+    answerD.innerText = q.choiceD;
 };
 
-//declare a variable for answer button.
+//declare a variable for answer buttons.
 let answerButton = document.querySelector('.answers-container');
 
 // add event listener to the answer buttons
@@ -90,24 +147,67 @@ let currentScore = 0;
 function handleCheckAnswer(event) {
 	if (event.target.id === questions[questionsIndex].correct) {
 		// alert('Impressive!');
-		currentScore += 25;
-		scorePoint.innerText = currentScore;
+		currentScore += 10;
+        scorePoint.innerText = currentScore;
+        // event.target.style.backgroundColor = 'rgba(58,174,89,.5)'
 	} else {
+        // event.target.style.backgroundColor = 'rgba(255,0,0,.6)'
 		// alert('Sorry, it is the wrong answer.');
 	}
-	if (questionsIndex === lastQuestion) {
-		nextButton.style.display = 'none';
+	if (currentScore === 100) {
+		winner.style.opacity = '1';
+		gameStart.style.display = 'none';
+        header.style.display = 'none';
+        nextButton.style.display = 'none'
 	}
 }
+
 // add event listener to the next button.
 nextButton.addEventListener('click', handleNextButton);
 // call function of handleNextButton
 function handleNextButton() {
 	if (questionsIndex < lastQuestion) {
 		questionsIndex++;
-		showQuestions();
+		popUpQuestions();
+	} else if (questionsIndex === lastQuestion && currentScore < 100) {
+		tryAgain.style.display = 'block';
+        gameStart.style.display = 'none';
+        nextButton.style.display = 'none';
 	}
 }
 
-//if the score is 100 showing winner message
-//if the score is under 100 showing try again button
+
+//set timer function.
+let sec = 10
+function countDown() {
+    let showTimer = document.querySelector('.timer');
+    showTimer.innerText = "Timer:" + sec;
+    sec = sec-1
+    let timer = setTimeout(countDown, 1000)
+    if(sec < 1) {
+        clearTimeout(timer);
+    }
+
+}
+
+//if score is under 100, show try again message
+//add event listener to try again button
+
+tryAgainButton.addEventListener('click', startOverGame);
+//function to restart the game
+function startOverGame() {
+	tryAgain.style.display = 'none';
+	scorePoint.innerText = 0;
+	// if it's the last question, reset the score and questionIndex from beginning
+	if (questionsIndex === lastQuestion) {
+		questionsIndex = 0;
+		currentScore = 0;
+		showQuestion();
+	}
+}
+
+//add timer
+//why have to click twice on start button to work?
+//after click answer, the next answer will have blue bold around on previous answered button
+// why can't I use if instead of else if (else if ((questionsIndex === lastQuestion) && (currentScore < 100))) ?
+//congrats message can't move to the middle of the page

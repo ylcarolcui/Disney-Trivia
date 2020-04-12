@@ -4,27 +4,58 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: beige;
+	background: url(https://i.imgur.com/boEbSxn.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 header {
+	font-family: 'Mouse Memoirs', sans-serif;
 	position: fixed;
-	top: 70px;
+	top: 100px;
 	text-align: center;
-	font-size: 30px;
+	font-size: 70px;
+	/* color: rgba(33, 32, 32, 0.79); */
+	color: white;
+	-webkit-text-stroke-width: 1.5px;
+	-webkit-text-stroke-color: black;
+}
+.info {
+    position: fixed;
+    left: 150px;
+    right: 150px;
+    bottom: 150px;
+    text-align: center;
+    font-size: 23px;
+    color: black;
+	-webkit-text-stroke-width: .2px;
+	-webkit-text-stroke-color: white;
+}
+.timer {
+	position: fixed;
+	top: 100px;
+	left: 80px;
+	font-size: 25px;
 }
 .score-board {
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
 	position: fixed;
 	top: 90px;
-	right: 80px;
+	right: 70px;
 	font-size: 15px;
 	display: grid;
 	grid-template-columns: repeat(2, auto);
 }
 .score {
 	display: inline-block;
+	color: black;
 }
 
 .point {
+    font-size: 28px;
 	display: inline-block;
 	padding: 8px;
 }
@@ -32,14 +63,19 @@ header {
 .container {
 	width: 600px;
 	border-radius: 10px;
-	background-color: beige;
+	background-color: transparent;
 	padding: 10px;
 	text-align: center;
 }
 .question {
-	font-size: 25px;
+	font-size: 50px;
+	font-weight: 550;
+	font-family: 'Mouse Memoirs', sans-serif;
+	/* font-family: 'Vesper Libre', serif; */
+	color: white;
+	-webkit-text-stroke-width: 1.5px;
+	-webkit-text-stroke-color: black;
 }
-
 .answers-container {
 	display: grid;
 	grid-template-columns: repeat(2, auto);
@@ -67,27 +103,72 @@ header {
 	margin-bottom: 5px;
 }
 
-.start-button,
-.next-button {
+.start-button {
+	position: fixed;
+	bottom: 80px;
+    color: rgb(26, 26, 26);
+	-webkit-text-stroke-width: 0.3px;
+	-webkit-text-stroke-color: white;
 	font-size: 30px;
 	font-weight: bold;
 	margin: 5px 10px;
 	border-radius: 5px;
 	padding: 5px;
 	border: 1px solid;
-}
-.start-button {
-	background-color: rgba(249, 0, 0, 0.735);
-	color: rgb(52, 51, 51);
+	background: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
 }
 .next-button {
 	position: fixed;
 	right: 80px;
 	font-size: 25px;
 	color: white;
-	background-color: rgba(1, 154, 154, 0.92);
+	background: rgba(9, 94, 64, 0.899);
 }
 
 .hide-display {
 	display: none;
+}
+.try-again {
+	display: none;
+	text-align: center;
+	position: fixed;
+}
+.again {
+	font-size: 45px;
+	font-family: 'Vesper Libre', serif;
+}
+.try-again-button {
+	background: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.winner-message {
+	font-size: 30px;
+	color: rgb(72, 232, 18);
+	-webkit-text-stroke-width: 0.4px;
+	-webkit-text-stroke-color: white;
+}
+.congrats {
+	background: linear-gradient(to right, #f56112 0%, #da1b60 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 50px;
+}
+.winner {
+	background: url(https://i.imgur.com/d2e5NAO.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 6rem;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 10;
+	opacity: 0;
+	pointer-events: none;
+	height: 100vh;
+	width: 100vw;
+	/* transition: all 450ms ease; */
 }
