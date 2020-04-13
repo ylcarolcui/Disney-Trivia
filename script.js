@@ -1,7 +1,6 @@
 //declare variable for some inner HTML elements to start the game
 const gameStart = document.querySelector('.question-control');
 const startButton = document.querySelector('.start-button');
-const nextButton = document.querySelector('.next-button');
 const header = document.querySelector('.header');
 let scoreBoard = document.querySelector('.score-board');
 let scorePoint = document.querySelector('.point');
@@ -9,7 +8,8 @@ const winner = document.querySelector('.winner');
 const tryAgain = document.querySelector('.try-again');
 const tryAgainButton = document.querySelector('.try-again-button');
 const showSuccessMessage = document.querySelector('.alert-success');
-const info = document.querySelector('.info')
+const info = document.querySelector('.info');
+let questionOrder = document.querySelector('.question-order');
 
 //declare variable for question and answers
 let askQuestion = document.querySelector('.question');
@@ -109,19 +109,21 @@ let questions = [
 //add event listener for start button
 startButton.addEventListener('click', showQuestion);
 //call the showQuestion function
+let questionNo = 1;
 function showQuestion() {
 	if (gameStart.style.display === 'none') {
 		gameStart.style.display = 'block';
 		scoreBoard.style.display = 'block';
-        startButton.style.display = 'none';
-        nextButton.style.display = 'block';
-        header.style.display = 'none';
-        info.style.display = 'none';
+		startButton.style.display = 'none';
+		header.style.display = 'none';
+		info.style.display = 'none';
+		questionOrder.style.display = 'block';
+		questionOrder.innerText = 'Question: ' + questionNo;
 	} else {
-        gameStart.style.display = 'none';
-    }
-    popUpQuestions();
-    
+		gameStart.style.display = 'none';
+	}
+	popUpQuestions();
+	// countDown();
 }
 
 // call function for showing first question
@@ -133,7 +135,7 @@ var popUpQuestions = function () {
 	answerA.innerText = q.choiceA;
 	answerB.innerText = q.choiceB;
 	answerC.innerText = q.choiceC;
-    answerD.innerText = q.choiceD;
+	answerD.innerText = q.choiceD;
 };
 
 //declare a variable for answer buttons.
@@ -146,53 +148,58 @@ answerButton.addEventListener('click', handleCheckAnswer);
 let currentScore = 0;
 function handleCheckAnswer(event) {
 	if (event.target.id === questions[questionsIndex].correct) {
-		// alert('Impressive!');
+		alert('Impressive!');
 		currentScore += 10;
-        scorePoint.innerText = currentScore;
-        // event.target.style.backgroundColor = 'rgba(58,174,89,.5)'
+		scorePoint.innerText = currentScore;
+		// event.target.style.backgroundColor = 'rgba(58,174,89,.5)'
 	} else {
-        // event.target.style.backgroundColor = 'rgba(255,0,0,.6)'
-		// alert('Sorry, it is the wrong answer.');
+		// event.target.style.backgroundColor = 'rgba(255,0,0,.6)'
+		alert('Sorry, it is the wrong answer.');
 	}
 	if (currentScore === 100) {
 		winner.style.opacity = '1';
 		gameStart.style.display = 'none';
-        header.style.display = 'none';
-        nextButton.style.display = 'none'
+		header.style.display = 'none';
 	}
+	handleNextQuestion();
 }
 
-// add event listener to the next button.
-nextButton.addEventListener('click', handleNextButton);
-// call function of handleNextButton
-function handleNextButton() {
+// call function of handleNextQuestion
+function handleNextQuestion() {
 	if (questionsIndex < lastQuestion) {
 		questionsIndex++;
 		popUpQuestions();
 	} else if (questionsIndex === lastQuestion && currentScore < 100) {
 		tryAgain.style.display = 'block';
-        gameStart.style.display = 'none';
-        nextButton.style.display = 'none';
+		gameStart.style.display = 'none';
+		questionOrder.style.display = 'none';
 	}
+	questionNo++;
+	questionOrder.innerText = 'Question: ' + questionNo;
 }
-
 
 //set timer function.
-let sec = 10
-function countDown() {
-    let showTimer = document.querySelector('.timer');
-    showTimer.innerText = "Timer:" + sec;
-    sec = sec-1
-    let timer = setTimeout(countDown, 1000)
-    if(sec < 1) {
-        clearTimeout(timer);
-    }
-
-}
+// let sec = 10;
+// function countDown() {
+// 	let showTimer = document.querySelector('.timer');
+// 	showTimer.innerText = sec;
+//     let timer = setTimeout(timeIt, 1000);
+//     function timeIt () {
+//         sec = sec-1;
+//         // showTimer.innerText = sec;
+//     }
+// 	if (sec < 1) {
+//         clearTimeout(timer);
+// 		// if (questionsIndex <= lastQuestion && currentScore < 100) {
+// 		// 	tryAgain.style.display = 'block';
+// 		// 	gameStart.style.display = 'none';
+// 		// 	questionOrder.style.display = 'none';
+// 		// }
+// 	}
+// }
 
 //if score is under 100, show try again message
 //add event listener to try again button
-
 tryAgainButton.addEventListener('click', startOverGame);
 //function to restart the game
 function startOverGame() {
@@ -202,12 +209,9 @@ function startOverGame() {
 	if (questionsIndex === lastQuestion) {
 		questionsIndex = 0;
 		currentScore = 0;
+		questionNo = 1;
 		showQuestion();
 	}
 }
 
 //add timer
-//why have to click twice on start button to work?
-//after click answer, the next answer will have blue bold around on previous answered button
-// why can't I use if instead of else if (else if ((questionsIndex === lastQuestion) && (currentScore < 100))) ?
-//congrats message can't move to the middle of the page
