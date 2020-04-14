@@ -37,4 +37,5 @@ function countDown() {
 
 }
 ```
-[this is my url to github repository for project 1](https://github.com/ylcarolcui/carolcui-project1.git)
+
+[this is my url for project 1](https://ylcarolcui.github.io/carolcui-project1/)
