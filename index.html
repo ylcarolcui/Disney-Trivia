@@ -19,25 +19,8 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<header class="header">Welcome to Disney Trivia</header>
-		<div class="question-order" style="display: none;">
-			<h1></h1>
-		</div>
-		<div class="score-board hide-display">
-			<h1 class="score">Score:</h1>
-			<h2 class="point">0</h2>
-		</div>
-
-		<div class="container">
-			<div class="question-control hide-display" style="display: none;">
-				<div class="question"><p>what is the answer?</p></div>
-				<div class="answers-container" id="answers">
-					<button class="answer-button" id="A">A</button>
-					<button class="answer-button" id="B">B</button>
-					<button class="answer-button" id="C">C</button>
-					<button class="answer-button" id="D">D</button>
-				</div>
-			</div>
+		<section class="start">
+			<header class="header">Welcome to Disney Trivia</header>
 			<div class="info">
 				<p class="first-info">
 					This quiz is for you if you are wondering how well you know Disney.
@@ -47,9 +30,31 @@
 			</div>
 			<div class="controls">
 				<button class="start-button">Start Quiz!</button>
-				<button class="next-button hide-display">next</button>
 			</div>
-		</div>
+		</section>
+
+		<section class="game-container" style="display: none;">
+			<div class="question-order" style="display: none;">
+				<h1></h1>
+			</div>
+			<div class="score-board hide-display">
+				<h1 class="score">Score:</h1>
+				<h2 class="point">0</h2>
+			</div>
+
+			<div class="question-control hide-display" style="display: none;">
+				<div class="question">
+					<p>what is the answer?</p>
+				</div>
+				<div class="answers-container" id="answers">
+					<button class="answer-button" id="A">A</button>
+					<button class="answer-button" id="B">B</button>
+					<button class="answer-button" id="C">C</button>
+					<button class="answer-button" id="D">D</button>
+				</div>
+			</div>
+		</section>
+
 		<div class="try-again">
 			<h1 class="again">Do you want to try again?</h1>
 			<button class="try-again-button">Try Again</button>

@@ -10,6 +10,7 @@ const tryAgainButton = document.querySelector('.try-again-button');
 const showSuccessMessage = document.querySelector('.alert-success');
 const info = document.querySelector('.info');
 let questionOrder = document.querySelector('.question-order');
+const start = document.querySelector('.start');
 
 //declare variable for question and answers
 let askQuestion = document.querySelector('.question');
@@ -97,11 +98,12 @@ let questions = [
 		correct: 'D',
 	},
 	{
-		question: 'Where does Aladdin live?',
-		choiceA: 'Agrabah',
-		choiceB: 'Baghdad',
-		choiceC: 'Ishtar',
-		choiceD: 'Qumar',
+		question:
+			'How long was the Genie stuck in the lamp before Aladdin released him?',
+		choiceA: '10,000 Years',
+		choiceB: '8000 Years',
+		choiceC: '5000 Years',
+		choiceD: '1000 Years',
 		correct: 'A',
 	},
 ];
@@ -110,13 +112,14 @@ let questions = [
 startButton.addEventListener('click', showQuestion);
 //call the showQuestion function
 let questionNo = 1;
+let gameContainer = document.querySelector('.game-container');
+console.log(gameContainer);
 function showQuestion() {
+	gameContainer.style.display = 'grid';
 	if (gameStart.style.display === 'none') {
 		gameStart.style.display = 'block';
 		scoreBoard.style.display = 'block';
-		startButton.style.display = 'none';
-		header.style.display = 'none';
-		info.style.display = 'none';
+		start.style.display = 'none';
 		questionOrder.style.display = 'block';
 		questionOrder.innerText = 'Question: ' + questionNo;
 	} else {
@@ -157,7 +160,8 @@ function handleCheckAnswer(event) {
 		alert('Sorry, it is the wrong answer.');
 	}
 	if (currentScore === 100) {
-		winner.style.opacity = '1';
+		winner.style.display = 'block';
+
 		gameStart.style.display = 'none';
 		header.style.display = 'none';
 	}
@@ -171,6 +175,7 @@ function handleNextQuestion() {
 		popUpQuestions();
 	} else if (questionsIndex === lastQuestion && currentScore < 100) {
 		tryAgain.style.display = 'block';
+		gameContainer.style.display = 'none';
 		gameStart.style.display = 'none';
 		questionOrder.style.display = 'none';
 	}
@@ -203,15 +208,13 @@ function handleNextQuestion() {
 tryAgainButton.addEventListener('click', startOverGame);
 //function to restart the game
 function startOverGame() {
-	tryAgain.style.display = 'none';
-	scorePoint.innerText = 0;
 	// if it's the last question, reset the score and questionIndex from beginning
 	if (questionsIndex === lastQuestion) {
+		tryAgain.style.display = 'none';
 		questionsIndex = 0;
 		currentScore = 0;
 		questionNo = 1;
+		scorePoint.innerText = 0;
 		showQuestion();
 	}
 }
-
-//add timer
