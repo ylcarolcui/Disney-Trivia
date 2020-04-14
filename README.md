@@ -16,10 +16,15 @@ The approach taken:
 - if the user doesn't get 100 points, user can start over the game by clicking 'Try Again' button.
 - if the user score 100 points, will show winner message.
 
+Improvement in the future:
+- will upgrade the styling for the game.
+- use modal instead of alert message for showing correct or wrong answers.
+- will add timer.
+- add show top three scores table/box.
+
 Unsolved problems:
 
-- CSS styling failed for cell phone view of question container.
-- Could not solve the code for Timer functionality which I want the Timer to be count down 10 sec for each questions.
+- Could not solve the function for Timer functionality which I want the Timer to be count down 10 sec for each questions.
 
 ```
 let sec = 10;

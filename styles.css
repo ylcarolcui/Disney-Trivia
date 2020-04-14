@@ -190,8 +190,9 @@ span {
 }
 .congrats {
 	font-family: 'Mouse Memoirs', sans-serif;
-	font-size: 80px;
+	font-size: 70px;
 	opacity: 0.95;
+	padding: 10px;
 	background: linear-gradient(to right, #f56112 0%, #da1b60 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
