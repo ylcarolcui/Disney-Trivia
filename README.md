@@ -2,8 +2,6 @@
 
 ## Disney Trivia Game
 
-![what homepage looks like](https://imgur.com/v5Eb1uo)
-
 Used following technologies:
 
 - HTML
