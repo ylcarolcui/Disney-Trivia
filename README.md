@@ -2,7 +2,8 @@
 
 ## Disney Trivia Game
 
-![homepage looks like:](sample images/homepage.png)
+![homepage looks like:](images/homepage.png)
+
 Used following technologies:
 
 - HTML
