@@ -145,14 +145,29 @@ header {
 	display: none;
 }
 .try-again {
-	display: none;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	min-height: 100vh;
+}
+.try-again-score {
+	font-family: 'Mouse Memoirs', sans-serif;
+	font-size: 60px;
+	color: white;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: black;
+	-moz-text-stroke-width: 0.5px;
+	-moz-text-stroke-color: black;
+	grid-column: 2;
+	text-align: center;
+	align-self: end;
+	margin-bottom: 50px;
 }
 .again {
+	grid-row: 2;
+	grid-column: 2;
 	text-align: center;
+	margin-top: 50px;
 	font-size: 40px;
 	font-family: 'Vesper Libre', serif;
 	color: rgb(26, 26, 26);
@@ -162,12 +177,12 @@ header {
 	-moz-text-stroke-color: white;
 }
 .try-again-button {
-	position: absolute;
-	left: 50%;
-	top: 120%;
-	transform: translate(-50%, -50%);
+	grid-row: 3;
+	grid-column: 2;
+	margin: 100px;
+	border-radius: 10px;
 	background: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 500;
 }
 

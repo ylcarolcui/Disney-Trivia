@@ -17,6 +17,7 @@ The approach taken:
 - if the user score 100 points, will show winner message.
 
 Improvement in the future:
+
 - will upgrade the styling for the game.
 - use modal instead of alert message for showing correct or wrong answers.
 - will add timer.

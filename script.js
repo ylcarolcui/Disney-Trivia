@@ -113,7 +113,6 @@ startButton.addEventListener('click', showQuestion);
 //call the showQuestion function
 let questionNo = 1;
 let gameContainer = document.querySelector('.game-container');
-console.log(gameContainer);
 function showQuestion() {
 	gameContainer.style.display = 'grid';
 	if (gameStart.style.display === 'none') {
@@ -174,7 +173,14 @@ function handleNextQuestion() {
 		questionsIndex++;
 		popUpQuestions();
 	} else if (questionsIndex === lastQuestion && currentScore < 100) {
-		tryAgain.style.display = 'block';
+		let tryAgainScore = document.createElement('h1');
+		tryAgainScore.classList.add('try-again-score');
+		let ScoreNote = document.createTextNode(
+			`Your Score is: ${currentScore} out of 100`
+		);
+		tryAgainScore.appendChild(ScoreNote);
+		tryAgain.insertBefore(tryAgainScore, tryAgain.childNodes[0]);
+		tryAgain.style.display = 'grid';
 		gameContainer.style.display = 'none';
 		gameStart.style.display = 'none';
 		questionOrder.style.display = 'none';
