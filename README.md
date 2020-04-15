@@ -2,6 +2,7 @@
 
 ## Disney Trivia Game
 
+![homepage looks like:](sample images/homepage.png)
 Used following technologies:
 
 - HTML
