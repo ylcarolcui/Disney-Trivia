@@ -190,24 +190,27 @@ function handleNextQuestion() {
 }
 
 // set timer function.
-// let sec = 10;
-// function countDown() {
-// 	let showTimer = document.querySelector('.timer');
-// 	showTimer.innerText = sec;
-//     let timer = setTimeout(timeIt, 1000);
-//     function timeIt () {
-//         sec = sec-1;
-//         // showTimer.innerText = sec;
-//     }
-// 	if (sec < 1) {
-//         clearTimeout(timer);
-// 		// if (questionsIndex <= lastQuestion && currentScore < 100) {
-// 		// 	tryAgain.style.display = 'block';
-// 		// 	gameStart.style.display = 'none';
-// 		// 	questionOrder.style.display = 'none';
-// 		// }
-// 	}
-// }
+let sec = 10;
+function countDown() {
+	let showTimer = document.querySelector('.timer');
+	showTimer.innerText = sec;
+	// setTimeout runs once... setInterval runs continuously
+    let timer = setInterval(timeIt, 1000);
+    function timeIt () {
+        sec = sec-1;
+				showTimer.innerText = sec;
+				// Moving the if statement inside your timeIt function
+				// ensures that it is checked every time setInterval fires
+				if (sec < 1) {
+							clearInterval(timer);
+					if (questionsIndex <= lastQuestion && currentScore < 100) {
+						tryAgain.style.display = 'block';
+						gameStart.style.display = 'none';
+						questionOrder.style.display = 'none';
+					}
+				}
+    }
+}
 
 //if score is under 100, show try again message
 //add event listener to try again button
