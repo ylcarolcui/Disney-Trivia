@@ -1,6 +1,6 @@
 # Carol Cui-project1
 
-## Disney Trivia Game
+### Disney Trivia Game
 
 #### Homepage looks like:
 ![](images/homepage.png)
