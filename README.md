@@ -55,4 +55,4 @@ function countDown() {
 }
 ```
 
-[Please click here if you are ready to play!](https://ylcarolcui.github.io/carolcui-project1/)
+[Please click here if you are ready to play!](https://ylcarolcui.github.io/Disney-Trivia/)
