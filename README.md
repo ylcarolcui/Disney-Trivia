@@ -11,7 +11,7 @@
 #### Installation Instructions:
 
 The game should able to be played in any web browser and devices. 
-Once the game started, player will get 10 points if answered right, otherwise no point will be applyed to the score board.
+Once the game started, player will get 10 points if answered right, otherwise no point will be applied to the score board.
 
 #### Used following technologies:
 
